@@ -1,0 +1,3 @@
+config DIRTY_SYSTEM_DETECTOR
+        default n
+        bool "HTC dirty file detector for /system partition"
