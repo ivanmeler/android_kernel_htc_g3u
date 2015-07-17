@@ -193,9 +193,16 @@ SUBARCH := $(shell uname -m | sed -e s/i.86/i386/ -e s/sun4u/sparc64/ \
 # Note: Some architectures assign CROSS_COMPILE in their arch/*/Makefile
 export KBUILD_BUILDHOST := $(SUBARCH)
 ARCH		?= $(SUBARCH)
-CROSS_COMPILE	?= $(CONFIG_CROSS_COMPILE:"%"=%)
 ARCH		:= arm
+username = $(shell whoami)
+
+#Eww I won't do inline kernel building just yet once i start using it i shell disbale this 
+ifeq ($(user),ivanmeler)
+CROSS_COMPILE	:= ../../arm-eabi-4.6/bin/arm-eabi-
+else
+CROSS_COMPILE	?= $(CONFIG_CROSS_COMPILE:"%"=%)
 CROSS_COMPILE	:= arm-eabi-
+endif
 
 # Architecture as present in compile.h
 UTS_MACHINE 	:= $(ARCH)
