@@ -197,7 +197,7 @@ ARCH		:= arm
 username = $(shell whoami)
 
 #Eww I won't do inline kernel building just yet once i start using it i shell disbale this 
-ifeq ($(user),ivanmeler)
+ifeq ($(username),ivanmeler)
 CROSS_COMPILE	:= ../../arm-eabi-4.6/bin/arm-eabi-
 else
 CROSS_COMPILE	?= $(CONFIG_CROSS_COMPILE:"%"=%)
